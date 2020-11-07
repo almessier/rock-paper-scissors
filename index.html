@@ -3,9 +3,19 @@
 <head>
   <title>Rock-Paper-Scissors</title>
   <meta charset="UTF-8"/>
+  <style>
+
+  </style>
 </head>
 <body>
+    <div id="container">
+        <button id="start">Start</button>
+    </div>
   <script>
+    const start = document.querySelector('#start');
+    start.addEventListener('click', () => {
+        game();
+    });
     function game() {
         let i;
         let computerScore = 0;
@@ -17,10 +27,23 @@
             if(playRound(playerSelection, computerSelection).slice(4,8) == 'Lose'){
                 computerScore++;
                 console.log('Player: ' + playerScore + ' Computer: ' + computerScore);
+                if(computerScore === 3){
+                    break;
+                }
+                else {
+                    continue;
+                }
             } else if (playRound(playerSelection, computerSelection).slice(4,7) == 'Win'){
                 playerScore++;
                 console.log('Player: ' + playerScore + ' Computer: ' + computerScore);
+                if(playerScore === 3){
+                    break;
+                }
+                else {
+                    continue;
+                }
             } else {
+                i--;
                 console.log('Player: ' + playerScore + ' Computer: ' + computerScore);
             }
         }
